@@ -40,7 +40,7 @@ plt.show()
 
 # Define a function to perform a color threshold
 def color_thresh(img, rgb_thresh=(0, 0, 0)):
-    binary_image = np.zeros(img.shape[0:3])
+    binary_image = np.zeros(img.shape[0:2])
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
             for k in range(3):
