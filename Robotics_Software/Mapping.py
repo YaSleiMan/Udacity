@@ -9,7 +9,7 @@ from Function_Dump import perspect_transform
 # Read in the same sample image as before
 image = mpimg.imread('sample.jpg')
 source = np.float32([[14.7278,139.985],[119.301,95.7843],[200.157,95.7843],[302.574,139.446]])
-destination = np.float32([[155,155], [155,145], [165,145], [165,155]])
+destination = np.float32([[155,160], [155,150], [165,150], [165,160]])
 
 # Assume you have already defined perspect_transform() and color_thresh()
 warped = perspect_transform(image, source, destination)
@@ -35,6 +35,8 @@ def rover_coords(binary_img):
         x_pixel[i] = xpos[i]-160
     for i in range(len(ypos)):
         y_pixel[i] = 160-ypos[i]
+    #x_pixel = -(ypos - binary_img.shape[0]).astype(np.float)
+    #y_pixel = -(xpos - binary_img.shape[1] / 2).astype(np.float)
     return x_pixel, y_pixel
 
 ypos, xpos = rover_coords(colorsel)
